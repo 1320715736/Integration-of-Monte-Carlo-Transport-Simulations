@@ -1,0 +1,23 @@
+{
+  "grid_step_um": 0.2,
+  "x_min_um": -200.0,
+  "x_max_um": 199.4,
+  "lateral_size_um": 399.4,
+  "z_min_um": 0.0,
+  "z_max_um": 135.4,
+  "depth_um": 135.4,
+  "collapsed_axis": "y",
+  "collapsed_y_min_um": -199.60000000000002,
+  "collapsed_y_max_um": 196.0,
+  "collapsed_thickness_um": 395.6,
+  "voxel_volume_um3": 15.824000000000003,
+  "voxel_volume_cm3": 1.5824000000000002e-11,
+  "integration_time_s": 1.0,
+  "simulated_primary_histories": 10000.0,
+  "incoming_electrons_assumed": 10000.0,
+  "optical_generation_factor": 63195146612.740135,
+  "raw_pairs_sum": 253800996.49638882,
+  "optical_generation_sum": 1.603899118404884e+19,
+  "x_bins": 1997,
+  "z_bins": 677
+}

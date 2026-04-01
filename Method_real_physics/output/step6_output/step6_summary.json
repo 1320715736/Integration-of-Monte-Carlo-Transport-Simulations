@@ -1,0 +1,12 @@
+{
+  "source_dat": "n51_.dat",
+  "source_values": "step5_output\\optical_generation_values.csv",
+  "output_dat": "step6_output\\n51_optical_generation.dat",
+  "optical_generation_value_count": 16641,
+  "pmi_reference_value_count": 16641,
+  "dataset_added": "OpticalGeneration",
+  "validity": [
+    "Silicon_1"
+  ],
+  "source_file_untouched": true
+}
