@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700">
+<rect width="100%" height="100%" fill="white"/>
+<text x="550.0" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="24">Step 4 Nonzero Optical Generation Histogram</text>
+<rect x="90" y="50" width="970" height="560" fill="none" stroke="#333" stroke-width="1.2"/>
+<line x1="90" y1="610.0" x2="1060" y2="610.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="78" y="615.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">0</text>
+<line x1="90" y1="470.0" x2="1060" y2="470.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="78" y="475.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">1116</text>
+<line x1="90" y1="330.0" x2="1060" y2="330.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="78" y="335.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">2233</text>
+<line x1="90" y1="190.0" x2="1060" y2="190.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="78" y="195.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">3350</text>
+<line x1="90" y1="50.0" x2="1060" y2="50.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="78" y="55.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">4466</text>
+<line x1="-26.6" y1="50" x2="-26.6" y2="610" stroke="#ececec" stroke-width="1"/>
+<text x="-26.6" y="638" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">1e11</text>
+<line x1="149.6" y1="50" x2="149.6" y2="610" stroke="#ececec" stroke-width="1"/>
+<text x="149.6" y="638" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">1e12</text>
+<line x1="325.9" y1="50" x2="325.9" y2="610" stroke="#ececec" stroke-width="1"/>
+<text x="325.9" y="638" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">1e13</text>
+<line x1="502.1" y1="50" x2="502.1" y2="610" stroke="#ececec" stroke-width="1"/>
+<text x="502.1" y="638" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">1e14</text>
+<line x1="678.4" y1="50" x2="678.4" y2="610" stroke="#ececec" stroke-width="1"/>
+<text x="678.4" y="638" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">1e15</text>
+<line x1="854.6" y1="50" x2="854.6" y2="610" stroke="#ececec" stroke-width="1"/>
+<text x="854.6" y="638" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">1e16</text>
+<line x1="1030.9" y1="50" x2="1030.9" y2="610" stroke="#ececec" stroke-width="1"/>
+<text x="1030.9" y="638" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">1e17</text>
+<line x1="1207.1" y1="50" x2="1207.1" y2="610" stroke="#ececec" stroke-width="1"/>
+<text x="1207.1" y="638" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">1e18</text>
+<rect x="90.00" y="610.00" width="18.80" height="0.00" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="109.80" y="609.62" width="18.80" height="0.38" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="129.59" y="609.87" width="18.80" height="0.13" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="149.39" y="609.87" width="18.80" height="0.13" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="169.18" y="609.75" width="18.80" height="0.25" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="188.98" y="609.62" width="18.80" height="0.38" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="208.78" y="609.75" width="18.80" height="0.25" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="228.57" y="609.87" width="18.80" height="0.13" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="248.37" y="609.75" width="18.80" height="0.25" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="268.16" y="610.00" width="18.80" height="0.00" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="287.96" y="609.75" width="18.80" height="0.25" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="307.76" y="609.25" width="18.80" height="0.75" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="327.55" y="609.50" width="18.80" height="0.50" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="347.35" y="608.87" width="18.80" height="1.13" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="367.14" y="608.87" width="18.80" height="1.13" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="386.94" y="607.62" width="18.80" height="2.38" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="406.73" y="602.35" width="18.80" height="7.65" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="426.53" y="599.09" width="18.80" height="10.91" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="446.33" y="585.92" width="18.80" height="24.08" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="466.12" y="567.99" width="18.80" height="42.01" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="485.92" y="532.51" width="18.80" height="77.49" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="505.71" y="494.01" width="18.80" height="115.99" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="525.51" y="401.60" width="18.80" height="208.40" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="545.31" y="281.10" width="18.80" height="328.90" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="565.10" y="214.76" width="18.80" height="395.24" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="584.90" y="180.16" width="18.80" height="429.84" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="604.69" y="123.86" width="18.80" height="486.14" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="624.49" y="93.26" width="18.80" height="516.74" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="644.29" y="50.00" width="18.80" height="560.00" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="664.08" y="124.23" width="18.80" height="485.77" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="683.88" y="181.66" width="18.80" height="428.34" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="703.67" y="311.07" width="18.80" height="298.93" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="723.47" y="409.50" width="18.80" height="200.50" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="743.27" y="503.54" width="18.80" height="106.46" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="763.06" y="559.72" width="18.80" height="50.28" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="782.86" y="589.18" width="18.80" height="20.82" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="802.65" y="601.72" width="18.80" height="8.28" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="822.45" y="604.98" width="18.80" height="5.02" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="842.24" y="607.37" width="18.80" height="2.63" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="862.04" y="609.62" width="18.80" height="0.38" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="881.84" y="608.24" width="18.80" height="1.76" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="901.63" y="608.50" width="18.80" height="1.50" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="921.43" y="609.12" width="18.80" height="0.88" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="941.22" y="609.75" width="18.80" height="0.25" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="961.02" y="610.00" width="18.80" height="0.00" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="980.82" y="610.00" width="18.80" height="0.00" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="1000.61" y="609.75" width="18.80" height="0.25" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="1020.41" y="609.75" width="18.80" height="0.25" fill="#1f77b4" fill-opacity="0.9"/>
+<rect x="1040.20" y="609.75" width="18.80" height="0.25" fill="#1f77b4" fill-opacity="0.9"/>
+<text x="575.0" y="678" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">OpticalGeneration (cm^-3 s^-1, log scale)</text>
+<text x="24" y="330.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" transform="rotate(-90 24 330.0)">Cell count</text>
+<rect x="840" y="68" width="200" height="134" rx="8" ry="8" fill="white" fill-opacity="0.88" stroke="#cccccc"/>
+<text x="852" y="94" font-family="Arial, sans-serif" font-size="15">count = 38472</text>
+<text x="852" y="116" font-family="Arial, sans-serif" font-size="15">min = 4.588e+11</text>
+<text x="852" y="138" font-family="Arial, sans-serif" font-size="15">median = 5.694e+14</text>
+<text x="852" y="160" font-family="Arial, sans-serif" font-size="15">mean = 8.234e+14</text>
+<text x="852" y="182" font-family="Arial, sans-serif" font-size="15">max = 1.463e+17</text>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "source_dat": "n4_.dat",
+  "source_values": "output\\step5_output\\optical_generation_values.csv",
+  "output_dat": "output\\step6_output\\n4_optical_generation.dat",
+  "optical_generation_value_count": 16641,
+  "pmi_reference_value_count": 16641,
+  "dataset_added": "OpticalGeneration",
+  "validity": [
+    "SiliconCarbide_1"
+  ],
+  "source_file_untouched": true
+}
