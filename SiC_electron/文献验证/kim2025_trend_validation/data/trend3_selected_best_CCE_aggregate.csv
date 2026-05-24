@@ -1,0 +1,6 @@
+nt_label,trap_density_cm3,source_count,median_best_thickness_um,mean_best_thickness_um,median_shift_from_Nt0_best_um,mean_shift_from_Nt0_best_um,median_best_CCE_percent,mean_best_CCE_percent,median_best_CCE_drop_from_Nt0_best_pp,mean_best_CCE_drop_from_Nt0_best_pp,boundary_best_count,internal_best_count
+0,0,5,100,100,0,0,97.797494398,93.640880111,0,0,4,1
+1e11,100000000000,5,100,100,0,0,97.793917353,93.630122154,0.005370516,0.010757957,4,1
+1e12,1e+12,5,100,100,0,0,97.738915173,93.503718921,0.058579225,0.137161189,4,1
+1e13,1e+13,5,60,44,-40,-56,95.109428275,86.951738958,1.985834895,6.689141153,1,4
+5e13,5e+13,5,30,36,-70,-64,73.630963154,69.896558083,15.83236621,23.744322028,2,3

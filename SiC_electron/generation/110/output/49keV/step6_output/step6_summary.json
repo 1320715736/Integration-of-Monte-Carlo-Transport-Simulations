@@ -1,0 +1,27 @@
+{
+  "source_dat": "d:\\VScode\\project\\Integration of Monte Carlo Transport Simulations\\SiC_electron\\n25_.dat",
+  "output_dat": "d:\\VScode\\project\\Integration of Monte Carlo Transport Simulations\\SiC_electron\\output\\49keV\\step6_output\\n25_49keV_optical_generation.dat",
+  "optical_generation_value_count": 23855,
+  "validity": [
+    "p_plus",
+    "i_layer",
+    "n_plus"
+  ],
+  "regions": {
+    "p_plus": {
+      "vertex_count": 1560,
+      "nonzero": 256,
+      "G_max": 108495385860.2828
+    },
+    "i_layer": {
+      "vertex_count": 19435,
+      "nonzero": 3079,
+      "G_max": 188666716920.6842
+    },
+    "n_plus": {
+      "vertex_count": 2990,
+      "nonzero": 230,
+      "G_max": 15452763.720197927
+    }
+  }
+}

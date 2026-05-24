@@ -1,0 +1,12 @@
+source,source_label,thickness_um,bias_v,missing_nt
+10kev,10 keV,110.0,63.0,5e13
+30kev,30 keV,110.0,63.0,5e13
+49kev,49 keV,110.0,63.0,1e13
+49kev,49 keV,110.0,63.0,5e13
+100kev,100 keV,110.0,63.0,1e11
+100kev,100 keV,110.0,63.0,1e12
+100kev,100 keV,110.0,63.0,1e13
+100kev,100 keV,110.0,63.0,5e13
+156p5,156.5 keV,100.0,52.0,1e13
+156p5,156.5 keV,100.0,52.0,5e13
+c14,C-14 spectrum,100.0,52.0,5e13

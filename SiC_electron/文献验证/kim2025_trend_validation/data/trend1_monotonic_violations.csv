@@ -1,0 +1,5 @@
+source,source_label,thickness_um,bias_v,from_nt,to_nt,delta_CCE_pp,from_CCE_percent,to_CCE_percent,over_tolerance,complete_nt_set,initial_outlier_any,baseline_methods
+100kev,100 keV,20,2,0,1e11,0.000276158428818,60.7395454038,60.7398215623,False,True,False,mean_first_5_points
+156p5,156.5 keV,10,0.5,1e12,1e13,0.000197342421798,10.7553051013,10.7555024437,False,True,False,mean_first_5_points
+156p5,156.5 keV,20,2,0,1e11,0.00044749093232,25.2451640851,25.245611576,False,True,False,mean_first_5_points
+c14,C-14 spectrum,20,2,0,1e11,0.000111285556216,81.0610475906,81.0611588761,False,True,False,mean_first_5_points

@@ -1,0 +1,11 @@
+{
+  "label": "49keV",
+  "vertex_count": 11115,
+  "tcad_lateral_min_um": -120.0,
+  "tcad_lateral_max_um": 120.0,
+  "tcad_depth_min_um": -0.0,
+  "tcad_depth_max_um": 10.7,
+  "interpolated_min": 0.0,
+  "interpolated_max": 188493832075.7657,
+  "interpolated_nonzero_count": 2317
+}

@@ -1,0 +1,6 @@
+source,source_label,best_thickness_Nt0_um,best_CCE_Nt0_percent,best_thickness_Nt1e11_um,best_CCE_Nt1e11_percent,best_thickness_Nt1e12_um,best_CCE_Nt1e12_percent,best_thickness_Nt1e13_um,best_CCE_Nt1e13_percent,best_thickness_Nt5e13_um,best_CCE_Nt5e13_percent
+20kev,20 keV,110 boundary,74.251206345,110 boundary,74.247533119,110 boundary,74.197767866,10 boundary,73.833997916,10 boundary,73.630963154
+49kev,49 keV,110 boundary,97.74872638,110 boundary,97.742624802,110 boundary,97.677262126,20,97.528066653,20,96.610845923
+100kev,100 keV,80,99.391526267,80,99.386155751,80,99.342565884,60,97.405691372,30,67.039433824
+156p5,156.5 keV,100 boundary,99.015447164,100 boundary,98.980379746,100 boundary,98.562083558,70,70.881510575,90 boundary,30.236419327
+c14,C-14 spectrum,100 boundary,97.797494398,100 boundary,97.793917353,100 boundary,97.738915173,60,95.109428275,30,81.965128188
