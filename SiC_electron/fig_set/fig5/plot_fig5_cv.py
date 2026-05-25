@@ -15,7 +15,7 @@ THIS_DIR = Path(__file__).resolve().parent
 FIG_SET_DIR = THIS_DIR.parent
 sys.path.insert(0, str(FIG_SET_DIR))
 
-from journal_style import save_figure, use_ieee_style
+from journal_style import finalize_axes, save_figure, use_ieee_style
 
 INPUT_CSV = THIS_DIR / "tcad_cv.csv"
 OUT_CSV = THIS_DIR / "fig5_cv_processed.csv"
@@ -99,25 +99,23 @@ def plot(thickness_um: float, points: list[tuple[float, float]]) -> None:
         min(one_over_c2) + 0.15 * (max(one_over_c2) - min(one_over_c2)),
         f"Vdep = {vdep:.1f} V\nWi = {thickness_um:.0f} um",
         color="#922b21",
-        fontsize=10,
+        fontsize=8,
         va="bottom",
     )
     ax.set_xlabel("Reverse bias (V)")
     ax.set_ylabel(r"$1/C^2$ (F$^{-2}$)")
-    ax.set_title(r"Baseline 4H-SiC PIN $1/C^2$-V characteristic ($N_t=10^{13}$ cm$^{-3}$)")
     ax.minorticks_on()
-    ax.grid(True, color="#d7dce2", linewidth=0.5)
     ax.set_axisbelow(True)
 
     inset = ax.inset_axes([0.56, 0.53, 0.38, 0.36])
     inset.plot(voltage, [c * 1e12 for c in capacitance], color="#2f855a", linewidth=1.0)
     inset.axvline(vdep, color="#c0392b", linestyle="--", linewidth=0.8)
-    inset.set_xlabel("V", fontsize=8)
-    inset.set_ylabel("C (pF)", fontsize=8)
-    inset.tick_params(labelsize=8)
+    inset.set_xlabel("V")
+    inset.set_ylabel("C (pF)")
+    inset.tick_params(labelsize=7)
     inset.minorticks_on()
-    inset.grid(True, color="#e5e7eb", linewidth=0.45)
 
+    finalize_axes(ax, inset)
     fig.tight_layout()
     save_figure(fig, OUT_BASE)
     plt.close(fig)
