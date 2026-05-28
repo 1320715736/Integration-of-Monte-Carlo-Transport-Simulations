@@ -1,0 +1,4 @@
+test_case,thickness_um,bias_V,trap_density_cm3,expected_CCE_percent,TCAD_CCE_percent,status,interpretation
+"Ideal uniform generation, no trap",,,0.0,~100,,needs dedicated control simulation,Use this to confirm the transient-current integration limit.
+"Geant4 mapped C-14, no trap",120.0,75.0,0.0,~97.8,97.7120780488379,available,Existing C-14 transient response at 120 um full-depletion bias.
+"Geant4 mapped C-14, Nt=1e13",120.0,75.0,10000000000000.0,lower than no-trap case,73.32371287210574,available,Existing C-14 transient response at 120 um full-depletion bias.

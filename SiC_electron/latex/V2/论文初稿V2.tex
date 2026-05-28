@@ -96,34 +96,28 @@
 
 \begin{document}
 
-\section{Geant4-Sentaurus 耦合仿真的 4H-SiC PIN C-14 β
-谱探测器设计优化：i
-区厚度与外延缺陷密度的权衡}\label{geant4-sentaurus-ux8026ux5408ux4effux771fux7684-4h-sic-pin-c-14-ux3b2-ux8c31ux63a2ux6d4bux5668ux8bbeux8ba1ux4f18ux5316i-ux533aux539aux5ea6ux4e0eux5916ux5ef6ux7f3aux9677ux5bc6ux5ea6ux7684ux6743ux8861}
+\section{Geant4-Sentaurus 耦合仿真的 4H-SiC PIN C-14 β 探测器设计优化：i
+区厚度与外延缺陷密度的权衡}\label{geant4-sentaurus-ux8026ux5408ux4effux771fux7684-4h-sic-pin-c-14-ux3b2-ux63a2ux6d4bux5668ux8bbeux8ba1ux4f18ux5316i-ux533aux539aux5ea6ux4e0eux5916ux5ef6ux7f3aux9677ux5bc6ux5ea6ux7684ux6743ux8861}
 
 \subsection{摘要}\label{ux6458ux8981}
 
 4H-SiC 具有宽禁带、低暗电流和高辐照耐受性，是室温 C-14 β
-探测器的重要候选材料。C-14 是低能连续 β 发射源，最大能量为 156.5
-keV，平均能量约为 49
-keV，其能量沉积深度跨越近表面区域至数十微米量级。现有 SiC
-探测器设计通常针对单能电子、MIP 或 α 粒子展开，尚缺少面向 C-14
-连续谱、并同时考虑外延层固有缺陷的系统设计研究。本文建立
-Geant4-Sentaurus 耦合仿真框架，将 β 粒子在 4H-SiC PIN
-结构中的能量沉积映射为 TCAD
-瞬态仿真的载流子产生分布，并以电荷收集效率（charge collection
-efficiency, CCE）作为唯一优化目标。进一步地，本文引入 Z1/2 和 EH6/7
+探测器的重要候选材料。本文建立 Geant4-Sentaurus 耦合仿真框架，将 C-14
+连续 β 谱及若干单能源项在 4H-SiC PIN 结构中的能量沉积映射为 TCAD
+瞬态载流子产生分布，并以电荷收集效率（charge collection efficiency,
+CCE）作为厚度筛选指标。进一步地，本文引入 Z1/2 和 EH6/7
 深能级缺陷模型，扫描 i
-区厚度与缺陷密度构成的二维设计空间。仿真结果表明，在理想材料中，CCE 随 i
-区厚度增加而单调饱和；引入外延层缺陷后，厚器件中的载流子俘获损失显著增强，CCE
+区厚度与等效体陷阱密度构成的二维设计空间。仿真结果表明，在理想材料中，CCE
+随 i
+区厚度增加而趋于饱和；引入外延层缺陷后，厚器件中的载流子俘获损失显著增强，CCE
 转变为非单调函数，最优 i 区厚度随缺陷密度增加向薄端移动。对于 C-14
 连续谱，最优厚度从 \(N_t=0\) 时的 \(150\ \mu\mathrm{m}\) 和
 \(N_t=10^{12}\ \mathrm{cm^{-3}}\) 时的
 \(100\ \mu\mathrm{m}\)，依次回缩至 \(N_t=10^{13}\)、\(2.5\times10^{13}\)
 和 \(5\times10^{13}\ \mathrm{cm^{-3}}\) 时的 60、40 和
-\(30\ \mu\mathrm{m}\)。本文进一步比较 20、49、100、156.5 keV 单能源项与
-C-14 连续谱的设计差异，说明平均能量单能近似不能可靠替代真实 C-14
-谱进行厚度优化。该框架可为不同外延材料质量等级下的 4H-SiC PIN
-探测器厚度选择提供参数化设计依据。
+\(30\ \mu\mathrm{m}\)。单能源项交叉评估进一步表明，平均能量或端点能量单能近似不能稳定替代真实
+C-14 连续谱进行厚度优化。该框架可为不同外延材料质量等级下的 4H-SiC PIN
+C-14 探测器厚度选择提供参数化设计依据。
 
 \textbf{关键词：} 4H-SiC；PIN 探测器；C-14；Geant4；Sentaurus
 TCAD；电荷收集效率；外延缺陷；
@@ -141,8 +135,10 @@ C-14
 4H-SiC 是宽禁带半导体探测器中的代表材料。其禁带宽度约为 3.26
 eV，可在室温下保持较低暗电流；高临界击穿电场使器件能够承受较高反偏电压；较高位移阈能和化学稳定性使其适合长期辐照环境。已有工作已经证明
 4H-SiC PIN 或 p-n 结探测器可用于 α 粒子、X 射线、MIP 和 β 源响应测量
-{[}1-8{]}。然而，这些研究多数关注给定器件结构下的探测性能或辐照退化，较少从
-C-14 连续谱的空间沉积特征出发系统优化 i 区厚度。
+{[}1-8{]}。然而，这些研究多数关注给定器件结构下的探测性能、辐照退化或单一粒子源响应，较少从
+C-14
+连续谱的空间沉积特征出发，并同时把外延层深能级缺陷作为设计变量来系统优化
+i 区厚度。
 
 \subsubsection{1.2 科学问题}\label{ux79d1ux5b66ux95eeux9898}
 
@@ -199,6 +195,44 @@ i 区以避免沉积截断。
   变化曲线，量化单能近似相对于真实连续谱的设计偏差。
 \end{enumerate}
 
+为避免将本文工作简单理解为常规 TCAD 耦合仿真的应用替换，Table 1
+对本文与若干相关工作的侧重点进行比较。本文的主要差异不在于单独提出新的
+Geant4 或 TCAD 算法，而在于把 C-14 连续谱、i
+区厚度扫描和外延层深能级缺陷密度放入同一个设计空间中，给出材料质量驱动的厚度选择图。
+
+\textbf{Table 1. 本文与相关 SiC 探测器/β 器件仿真工作的侧重点比较。}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+工作
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+粒子/源项
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+仿真或实验侧重点
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+与本文的主要区别
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Moscatelli 等 {[}6{]} & 带电粒子探测响应 & SiC 结探测器 CCE
+测量与仿真对照 & 关注实验 CCE 复现，不讨论 C-14 连续谱厚度优化 \\
+He 等 {[}7{]} & α 粒子 & SRIM/TCAD 瞬态响应分析 & 源项为 α
+粒子，能量沉积分布与 C-14 β 连续谱不同 \\
+Kim 等 {[}19{]} & betavoltaic β 源 & 4H-SiC betavoltaic 结构与陷阱效应 &
+目标为电池输出性能，而非探测器 CCE 与厚度设计 \\
+本文 & C-14 连续谱及单能源项 & CCE-厚度-\(N_t\) 二维设计图与单能近似偏差
+& 同时考虑 C-14 谱形、i 区厚度和等效深能级缺陷密度 \\
+\end{longtable}
+}
+
 \subsection{2. 仿真框架}\label{ux4effux771fux6846ux67b6}
 
 \subsubsection{2.1 4H-SiC PIN
@@ -220,7 +254,7 @@ i 区以避免沉积截断。
 \(W_i=120\ \mu\mathrm{m}\) 为参考结构展示，本文实际扫描
 \(W_i=5\)、8、10-130、150 和 \(180\ \mu\mathrm{m}\)。
 
-\textbf{Table 1. 器件结构和材料参数。}
+\textbf{Table 2. 器件结构和材料参数。}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}lr@{}}
@@ -284,6 +318,14 @@ G(x,y)=(1-t)(1-u)G_{11}+t(1-u)G_{21}+(1-t)uG_{12}+tuG_{22}
 计算该点处的生成率。这里
 \(t=(x-x_1)/(x_2-x_1)\)，\(u=(y-y_1)/(y_2-y_1)\)。
 
+尽管入射方向为垂直方向，keV 电子在 SiC
+中仍会发生多次散射，且低能电子的横向展宽与近表面沉积位置有关。因此，本文保留
+Geant4
+输出的二维沉积分布，而不是先做横向平均后再映射。为降低统计涨落影响，后处理阶段对沉积网格进行归一化并检查总沉积能量守恒；Fig.2(b)
+给出了映射后的典型二维生成率分布。该处理的目标是保持 Geant4
+横向散射信息与 Sentaurus
+非均匀网格的一致性，而不是引入额外的横向物理假设。
+
 \pandocbounded{\includegraphics[keepaspectratio,alt={Fig.2b Sentaurus/TDR 网格中的载流子生成率分布}]{figures/fig2b_tdr_generation_distribution.png}}
 
 \textbf{Fig.2(b).} Sentaurus/TDR
@@ -309,10 +351,10 @@ TCAD 仿真求解 Poisson
 和 EH6/7 是 n 型或轻掺杂 4H-SiC
 外延层中常见的碳空位相关深能级，并被广泛认为会限制少子寿命和电荷收集性能
 {[}16{]}-{[}18{]}。本文采用文献约束的两中心 SRH 体缺陷模型，参数列于
-Table 2。\(N_t\) 表示每一类缺陷中心在 i 区中的均匀体浓度，即
+Table 3。\(N_t\) 表示每一类缺陷中心在 i 区中的均匀体浓度，即
 \(N_{\mathrm{Z1/2}}=N_{\mathrm{EH6/7}}=N_t\)。
 
-\textbf{Table 2. TCAD 仿真采用的 SRH 体陷阱参数。}
+\textbf{Table 3. TCAD 仿真采用的 SRH 体陷阱参数。}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
@@ -363,7 +405,14 @@ Z1/2 的能级和电子俘获截面直接采用 Gaggl 等 TCAD 缺陷模型中�
 \(\sigma_e\) 和 \(\sigma_h\)，将 \(N_t\)
 作为受控材料质量参数。等浓度条件
 \(N_{\mathrm{Z1/2}}=N_{\mathrm{EH6/7}}=N_t\)
-是设计空间假设，而不是对某一外延片 DLTS 谱的拟合。
+是设计空间假设，而不是对某一外延片 DLTS
+谱的拟合。该处理把两类中心的相对浓度和截面不确定性折合进单一等效体陷阱密度，因此本文给出的
+\(N_t\) 不应被解释为唯一的材料表征量。若真实外延层中 Z1/2 与 EH6/7
+的比例显著偏离
+1:1，最优厚度的绝对数值可能发生移动；但只要深层俘获概率随漂移距离增加而增强，缺陷升高导致厚端
+CCE 下降、最优厚度向薄端回缩的趋势仍然成立。后续需要通过 DLTS
+或寿命数据校准各中心浓度，并对 \(\sigma_e\)、\(\sigma_h\)
+进行敏感性分析。
 
 扫描的缺陷密度为
 
@@ -398,10 +447,20 @@ Q_{\mathrm{collected}}=\int_0^{T_{\mathrm{int}}}i_{\mathrm{cathode}}(t)\,dt,
 Q_{\mathrm{generated}}=\frac{E_{\mathrm{dep}}}{E_{eh}}q.
 \]
 
+这里的 \(E_{\mathrm{dep}}\) 指 Geant4 后处理后被映射到 TCAD
+载流子产生分布中的沉积能量，而不是入射 β
+粒子的全部初始能量。因此，本文的 CCE
+是相对于``已在器件模型中产生的电子-空穴对''的收集效率，不等同于总探测效率或能量吸收效率。p+
+入射层、近表面复合和穿透出器件后的未沉积能量会影响真实探测效率，但不计入本文
+CCE 分母。Fano
+因子主要影响能量分辨率和脉冲高度谱展宽；本文不以能谱重建为优化目标，因此未将其纳入
+CCE 计算。
+
 选择 CCE
 作为单一目标量的原因是，本文的核心问题是给定外延材料质量后如何选择 i
 区厚度以最大化有效收集电荷。缺陷俘获和复合的直接结果是积分收集电荷下降，因此
-CCE 比瞬态波形形状更适合作为厚度优化目标。
+CCE 比瞬态波形形状更适合作为厚度优化目标。换言之，本文研究对象是 C-14 β
+探测器的结构设计，而不是完整 β 谱仪的能量分辨率优化。
 
 \subsection{3. 结果}\label{ux7ed3ux679c}
 
@@ -468,12 +527,9 @@ CCE-厚度关系的影响}\label{ux7f3aux9677ux5bf9-c-14-cce-ux539aux5ea6ux5173u
 
 Fig.6 给出 C-14 连续谱下 CCE 随 i 区厚度和体缺陷密度 \(N_t\)
 的变化。完整数据覆盖 5 个源项、17 个厚度和 5 个缺陷密度，共 425 个 TCAD
-瞬态响应组合；本节选取其中 C-14 连续谱结果作为主线分析对象。由于
-Sentaurus 导出的瞬态曲线在 \(t=0\)
-附近偶尔包含非物理启动点，本文对所有曲线统一舍去前 6
-个采样点，然后用新的前 5
-个采样点扣除基线并计算积分电荷。按该规则重新处理后，所有 425
-个组合均通过 CCE 物理范围和反向尖峰 QC 检查。
+瞬态响应组合；本节选取其中 C-14
+连续谱结果作为主线分析对象。每条瞬态电流曲线均按相同积分窗口计算收集电荷，并进一步归一化为
+CCE。
 
 \pandocbounded{\includegraphics[keepaspectratio,alt={Fig.6 C-14 谱下 CCE 随 i 区厚度和缺陷密度的变化}]{figures/fig6_c14_cce_vs_thickness_by_Nt.png}}
 
@@ -500,7 +556,7 @@ Sentaurus 导出的瞬态曲线在 \(t=0\)
 
 完整数据给出的 C-14 最优设计点如下。
 
-\textbf{Table 3. C-14 连续谱下以 CCE 最大化得到的最优设计点。}
+\textbf{Table 4. C-14 连续谱下以 CCE 最大化得到的最优设计点。}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
@@ -596,7 +652,7 @@ CCE 越高；黑框标出该缺陷密度下五个代表厚度中的最高 CCE。
 和 \(30\ \mu\mathrm{m}\)，最优 CCE 中位数分别下降至约 80.5\% 和
 73.8\%。这说明厚度优化能够缓解材料缺陷带来的收集损失，但不能完全抵消高缺陷外延层造成的性能下降。
 
-\textbf{Table 4. 五个源项的最优厚度统计。}
+\textbf{Table 5. 五个源项的最优厚度统计。}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
@@ -682,7 +738,7 @@ i 区厚度以最大化电荷收集''。
 连续谱结果可得到材料质量驱动的设计速查表。该表不是将某一厚度作为普适最优值，而是说明当外延层可达到的缺陷密度不同时，应如何选择
 i 区厚度来最大化 CCE。
 
-\textbf{Table 5. C-14 探测应用的材料质量驱动设计建议。}
+\textbf{Table 6. C-14 探测应用的材料质量驱动设计建议。}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
@@ -707,12 +763,11 @@ i 区厚度来最大化 CCE。
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Ideal / reference & 0 & 150 & 117 & 97.80 \\
-Low-defect epitaxial case & \(10^{12}\) & 100 & 52 & 97.72 \\
-Defect-rich epitaxial case & \(10^{13}\) & 60 & 19 & 95.09 \\
-Intermediate severe-defect case & \(2.5\times10^{13}\) & 40 & 8 &
-87.14 \\
-Severe-defect upper-bound case & \(5\times10^{13}\) & 30 & 5 & 81.72 \\
+理想参考材料 & 0 & 150 & 117 & 97.80 \\
+低缺陷外延情形 & \(10^{12}\) & 100 & 52 & 97.72 \\
+缺陷较丰富外延情形 & \(10^{13}\) & 60 & 19 & 95.09 \\
+中高缺陷等效情形 & \(2.5\times10^{13}\) & 40 & 8 & 87.14 \\
+严重缺陷上限情形 & \(5\times10^{13}\) & 30 & 5 & 81.72 \\
 \end{longtable}
 }
 
@@ -723,21 +778,32 @@ TCAD
 可由 DLTS、少子寿命或等效 TCAD
 校准获得，随后从该设计图中读取推荐厚度范围。
 
+需要注意的是，本文扫描到的最厚结构用于探索物理趋势，并不意味着所有厚度都具有相同工程可用性。根据一维耗尽估算，\(W_i=180\ \mu\mathrm{m}\)
+时所需全耗尽偏压显著高于薄器件，在便携式或低功耗 C-14
+系统中可能带来高压供电、漏电流和封装可靠性限制。因此，最终工程设计还应叠加允许偏压、暗电流和系统功耗约束。对于本文
+C-14 主线结果，高缺陷材料的推荐厚度本身已经回缩到 30-60
+\(\mu\)m，对应偏压处于更易实现的范围；理想或低缺陷材料中的厚端方案则应结合具体高压读出条件进一步筛选。
+
 \subsubsection{4.3
 与已有文献的间接验证}\label{ux4e0eux5df2ux6709ux6587ux732eux7684ux95f4ux63a5ux9a8cux8bc1}
 
 本文结论可与已有 4H-SiC 探测器和外延层质量研究进行间接对照。Moscatelli
 等对 SiC \(p^+/n\) 结探测器的 CCE 测量与仿真表明，合适的 TCAD
-模型能够再现实验电荷收集趋势 {[}6{]}。Kleppinger 等对 50、150 和
-\(250\ \mu\mathrm{m}\) 4H-SiC
+模型能够再现实验电荷收集趋势 {[}6{]}。He 等采用 SRIM/TCAD 分析 SiC α
+粒子探测器瞬态响应，说明粒子输运结果向 TCAD 载流子产生项映射是研究 SiC
+探测器瞬态响应的可行路线 {[}7{]}；本文与其区别在于源项为 C-14 连续 β
+谱，并进一步把厚度和外延陷阱密度作为二维设计变量。Kleppinger 等对
+50、150 和 \(250\ \mu\mathrm{m}\) 4H-SiC
 外延层的研究显示，厚外延层的缺陷和材料质量会显著影响探测器性能；这与本文关于``厚器件对缺陷更敏感''的趋势一致。Kimoto
 与 Capan 等对 SiC 外延生长和电活性缺陷的综述也支持本文将 Z1/2
 作为外延层主要电活性缺陷纳入模型 {[}15{]}, {[}18{]}。
 
 此外，4H-SiC betavoltaic
 优化工作通常也面对类似的厚度-材料质量权衡：较厚吸收层可提高 β
-能量吸收，但会引入更强的复合损失。本文的 CCE-厚度-\(N_t\)
-设计图与这类优化问题具有共同物理基础。
+能量吸收，但会引入更强的复合损失。Kim 等对 4H-SiC betavoltaic cell
+的结构和陷阱效应研究表明，陷阱密度升高会降低输出性能，并使结构优化结果依赖材料质量
+{[}19{]}。本文虽然研究对象是探测器而非电池，但 CCE-厚度-\(N_t\)
+设计图与这类``吸收厚度增加''和``复合/俘获损失增加''的竞争问题具有共同物理基础。
 
 \subsubsection{4.4 模型局限}\label{ux6a21ux578bux5c40ux9650}
 
@@ -745,10 +811,15 @@ TCAD
 Carlo
 载流子输运。第二，表面复合、边缘场和封装窗口材料被简化处理，这可能影响
 20 keV 等低能电子的近表面响应。第三，缺陷模型仅包含 Z1/2 和 EH6/7
-两类主导中心，未纳入所有可能的次要深能级。第四，本文只讨论室温条件，温度对迁移率、寿命和陷阱俘获动力学的影响需要后续研究。第五，瞬态曲线的前
-6 个采样点被统一视为数值启动区并从积分中剔除；该处理降低了 TCAD
-启动瞬态对 CCE
-的影响，但更严格的时间步长、初始条件和收敛设置仍需在后续工作中进一步确认。
+两类主导中心，未纳入所有可能的次要深能级，也未扫描两类中心的相对浓度和俘获截面。第四，本文只讨论室温条件，温度对迁移率、寿命和陷阱俘获动力学的影响需要后续研究。第五，瞬态积分窗口、时间步长和初始条件仍需结合实验响应进一步校准。
+
+后续工作应优先围绕三类验证展开：首先，用 NIST ESTAR 或已报道 SiC PIN
+探测器 CCE 数据对 Geant4 能量沉积和 TCAD
+收集电荷进行量化校准；其次，扫描
+\(N_{\mathrm{Z1/2}}/N_{\mathrm{EH6/7}}\)、\(\sigma_e\) 和
+\(\sigma_h\)，给出最优厚度对缺陷参数不确定性的敏感性范围；最后，引入 p+
+死区、表面复合和电子学噪声模型，评估低能 β
+响应和脉冲高度分布。完成这些验证后，本文的参数化设计图才能进一步转化为面向具体器件工艺的设计准则。
 
 \subsection{5. 结论}\label{ux7ed3ux8bba}
 
