@@ -20,14 +20,14 @@ ELEMENTARY_CHARGE_C = 1.602176634e-19
 INITIAL_SAMPLE_DROP_COUNT = 6
 BASELINE_SAMPLE_COUNT = 5
 
-THICKNESS_ORDER = [float(item) for item in range(10, 131, 10)]
-NT_ORDER = ["0", "1e11", "1e12", "1e13", "5e13"]
-NT_VALUE = {"0": 0.0, "1e11": 1e11, "1e12": 1e12, "1e13": 1e13, "5e13": 5e13}
+THICKNESS_ORDER = [5.0, 8.0, *[float(item) for item in range(10, 131, 10)], 150.0, 180.0]
+NT_ORDER = ["0", "1e12", "1e13", "2.5e13", "5e13"]
+NT_VALUE = {"0": 0.0, "1e12": 1e12, "1e13": 1e13, "2.5e13": 2.5e13, "5e13": 5e13}
 NT_LABEL = {
     "0": "0",
-    "1e11": r"$10^{11}$",
     "1e12": r"$10^{12}$",
     "1e13": r"$10^{13}$",
+    "2.5e13": r"$2.5\times10^{13}$",
     "5e13": r"$5\times10^{13}$",
 }
 
@@ -49,7 +49,7 @@ HEADER_RE = re.compile(r"TotalCurrent\((?P<tag>[^)]*)\)\s+(?P<axis>[XY])$")
 TAG_RE = re.compile(
     r"(?P<thickness>\d+(?:\.\d+)?)um_"
     r"(?P<bias>\d+(?:\.\d+)?)V_"
-    r"Nt(?P<nt>0|1e11|1e12|1e13|5e13)"
+    r"Nt(?P<nt>0|1e12|1e13|2\.5e13|5e13)"
     r"n(?P<node>\d+)_des"
 )
 

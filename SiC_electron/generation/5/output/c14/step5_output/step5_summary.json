@@ -1,0 +1,11 @@
+{
+  "label": "c14",
+  "vertex_count": 9618,
+  "tcad_lateral_min_um": -120.0,
+  "tcad_lateral_max_um": 120.0,
+  "tcad_depth_min_um": -0.0,
+  "tcad_depth_max_um": 5.7,
+  "interpolated_min": 0.0,
+  "interpolated_max": 188657582084.67664,
+  "interpolated_nonzero_count": 5000
+}

@@ -26,12 +26,12 @@ def main() -> None:
 
     colors = {
         "0": "#111827",
-        "1e11": "#4C78A8",
-        "1e12": "#59A14F",
+        "1e12": "#4C78A8",
         "1e13": "#F28E2B",
+        "2.5e13": "#9C755F",
         "5e13": "#E15759",
     }
-    markers = {"0": "o", "1e11": "s", "1e12": "^", "1e13": "D", "5e13": "v"}
+    markers = {"0": "o", "1e12": "s", "1e13": "^", "2.5e13": "D", "5e13": "v"}
 
     fig, ax = plt.subplots()
     for nt in NT_ORDER:
@@ -51,7 +51,7 @@ def main() -> None:
 
     ax.set_xlabel(r"$W_i$ ($\mu$m)")
     ax.set_ylabel("CCE (%)")
-    ax.set_xlim(5, 135)
+    ax.set_xlim(0, 185)
     ax.legend(title=r"$N_t$ (cm$^{-3}$)", loc="center left", bbox_to_anchor=(1.01, 0.5), ncol=1)
     ax.minorticks_on()
     finalize_axes(ax)
