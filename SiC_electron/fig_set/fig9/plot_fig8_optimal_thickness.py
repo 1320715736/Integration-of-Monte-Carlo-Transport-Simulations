@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot Fig. 8: optimal i-region thickness versus trap density."""
+"""Plot Fig. 9: optimal i-region thickness versus trap density."""
 
 from __future__ import annotations
 
@@ -10,17 +10,18 @@ import matplotlib.pyplot as plt
 
 THIS_DIR = Path(__file__).resolve().parent
 FIG_SET_DIR = THIS_DIR.parent
-sys.path.insert(0, str(FIG_SET_DIR))
+SRC_DIR = FIG_SET_DIR.parent / "src"
+sys.path.insert(0, str(SRC_DIR))
 
-from journal_style import finalize_axes, save_figure, use_ieee_style
+from journal_style import finalize_axes, save_figure, set_export_defaults
 from tcad_it_tools import NT_ORDER, SOURCE_CONFIG, SOURCE_ORDER, best_by_source_nt, extract_metrics, write_csv
 
-OUT_BASE = THIS_DIR / "fig8_optimal_thickness_vs_Nt"
-OUT_CSV = THIS_DIR / "fig8_optimal_thickness_vs_Nt.csv"
+OUT_BASE = THIS_DIR / "fig9_optimal_thickness_vs_Nt"
+OUT_CSV = THIS_DIR / "fig9_optimal_thickness_vs_Nt.csv"
 
 
 def main() -> None:
-    use_ieee_style(single_column=True)
+    set_export_defaults(width=3.5, height=2.55, font_size=8.0)
     best_rows = best_by_source_nt(extract_metrics())
     write_csv(OUT_CSV, best_rows)
 
@@ -36,8 +37,10 @@ def main() -> None:
             x_pos,
             y_values,
             marker=marker,
-            markersize=3.2,
-            linewidth=1.15,
+            markersize=5.6,
+            markerfacecolor="white" if source != "c14" else "#111827",
+            markeredgewidth=1.0,
+            linewidth=1.45,
             color=str(SOURCE_CONFIG[source]["color"]),
             label=str(SOURCE_CONFIG[source]["label"]),
         )
@@ -46,13 +49,14 @@ def main() -> None:
     ax.set_ylabel(r"Optimal $W_i$ ($\mu$m)")
     ax.set_xticks(x_pos, x_labels)
     ax.set_ylim(0, 190)
-    ax.legend(loc="best")
+    ax.legend(loc="best", frameon=False)
     ax.minorticks_on()
+    ax.tick_params(direction="in", top=True, right=True)
     finalize_axes(ax)
     fig.tight_layout()
     save_figure(fig, OUT_BASE)
     plt.close(fig)
-    print(f"wrote {OUT_BASE}.png/.svg and {OUT_CSV}")
+    print(f"wrote {OUT_BASE}.png/.svg/.pdf and {OUT_CSV}")
 
 
 if __name__ == "__main__":

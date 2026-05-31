@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot Fig. 7: discrete C-14 CCE map versus thickness and trap density."""
+"""Plot Fig. 8: discrete C-14 CCE map versus thickness and trap density."""
 
 from __future__ import annotations
 
@@ -13,12 +13,13 @@ from matplotlib.patches import Rectangle
 
 THIS_DIR = Path(__file__).resolve().parent
 FIG_SET_DIR = THIS_DIR.parent
-sys.path.insert(0, str(FIG_SET_DIR))
+SRC_DIR = FIG_SET_DIR.parent / "src"
+sys.path.insert(0, str(SRC_DIR))
 
-from tcad_it_tools import NT_LABEL, NT_ORDER, THICKNESS_ORDER, extract_metrics, write_csv
+from tcad_it_tools import NT_LABEL, NT_ORDER, extract_metrics, write_csv
 
-OUT_BASE = THIS_DIR / "fig7_c14_cce_design_map"
-OUT_CSV = THIS_DIR / "fig7_c14_cce_design_map.csv"
+OUT_BASE = THIS_DIR / "fig8_c14_cce_design_map"
+OUT_CSV = THIS_DIR / "fig8_c14_cce_design_map.csv"
 REPRESENTATIVE_THICKNESS = [30.0, 40.0, 60.0, 100.0, 150.0]
 
 
@@ -27,6 +28,7 @@ def main() -> None:
     plt.rcParams.update(
         {
             "font.family": "Arial",
+            "font.sans-serif": ["Arial", "DejaVu Sans"],
             "font.size": 8,
             "axes.labelsize": 9,
             "xtick.labelsize": 7,
@@ -37,6 +39,8 @@ def main() -> None:
             "savefig.dpi": 600,
             "savefig.bbox": "tight",
             "savefig.pad_inches": 0.03,
+            "pdf.fonttype": 42,
+            "ps.fonttype": 42,
             "svg.fonttype": "none",
         }
     )
@@ -100,7 +104,7 @@ def main() -> None:
                 ha="center",
                 va="center",
                 color=text_color,
-                fontsize=7,
+                fontsize=7.2,
             )
 
     ax.set_xticks(np.arange(-0.5, len(REPRESENTATIVE_THICKNESS), 1), minor=True)
@@ -116,8 +120,9 @@ def main() -> None:
     fig.tight_layout()
     fig.savefig(f"{OUT_BASE}.png")
     fig.savefig(f"{OUT_BASE}.svg")
+    fig.savefig(f"{OUT_BASE}.pdf")
     plt.close(fig)
-    print(f"wrote {OUT_BASE}.png/.svg and {OUT_CSV}")
+    print(f"wrote {OUT_BASE}.png/.svg/.pdf and {OUT_CSV}")
 
 
 if __name__ == "__main__":

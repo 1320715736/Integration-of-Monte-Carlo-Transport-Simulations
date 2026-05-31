@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot Fig. 5: 120 um baseline 1/C^2-V characteristic with C-V inset."""
+"""Plot Fig. 6: 120 um baseline 1/C^2-V characteristic with C-V inset."""
 
 from __future__ import annotations
 
@@ -13,13 +13,14 @@ import matplotlib.pyplot as plt
 
 THIS_DIR = Path(__file__).resolve().parent
 FIG_SET_DIR = THIS_DIR.parent
-sys.path.insert(0, str(FIG_SET_DIR))
+SRC_DIR = FIG_SET_DIR.parent / "src"
+sys.path.insert(0, str(SRC_DIR))
 
-from journal_style import finalize_axes, save_figure, use_ieee_style
+from journal_style import finalize_axes, save_figure, set_export_defaults
 
 INPUT_CSV = THIS_DIR / "tcad_cv.csv"
-OUT_CSV = THIS_DIR / "fig5_cv_processed.csv"
-OUT_BASE = THIS_DIR / "fig5_cv_1overc2_baseline"
+OUT_CSV = THIS_DIR / "fig6_cv_processed.csv"
+OUT_BASE = THIS_DIR / "fig6_cv_1overc2_baseline"
 
 BASELINE_THICKNESS_UM = 120.0
 EPS0_F_PER_CM = 8.8541878128e-14
@@ -84,22 +85,25 @@ def write_processed(thickness_um: float, points: list[tuple[float, float]]) -> N
 
 
 def plot(thickness_um: float, points: list[tuple[float, float]]) -> None:
-    use_ieee_style(single_column=False)
+    set_export_defaults(width=5.4, height=3.45, font_size=8.0)
 
     voltage = [v for v, _ in points]
     capacitance = [c for _, c in points]
     one_over_c2 = [1.0 / (c * c) for _, c in points]
     vdep = depletion_voltage(thickness_um)
+    main_color = "#2F5D8C"
+    inset_color = "#2A9D8F"
+    marker_color = "#000000"
 
     fig, ax = plt.subplots()
-    ax.plot(voltage, one_over_c2, color="#1f5aa6", linewidth=1.6)
-    ax.axvline(vdep, color="#c0392b", linestyle="--", linewidth=1.0)
+    ax.plot(voltage, one_over_c2, color=main_color, linewidth=1.45)
+    ax.axvline(vdep, color=marker_color, linestyle="--", linewidth=0.95)
     ax.text(
         vdep + 6,
         min(one_over_c2) + 0.15 * (max(one_over_c2) - min(one_over_c2)),
-        f"Vdep = {vdep:.1f} V\nWi = {thickness_um:.0f} um",
-        color="#922b21",
-        fontsize=8,
+        rf"$V_{{\mathrm{{dep}}}}$ = {vdep:.1f} V" "\n" rf"$W_i$ = {thickness_um:.0f} $\mu$m",
+        color=marker_color,
+        fontsize=7.5,
         va="bottom",
     )
     ax.set_xlabel("Reverse bias (V)")
@@ -108,13 +112,14 @@ def plot(thickness_um: float, points: list[tuple[float, float]]) -> None:
     ax.set_axisbelow(True)
 
     inset = ax.inset_axes([0.56, 0.53, 0.38, 0.36])
-    inset.plot(voltage, [c * 1e12 for c in capacitance], color="#2f855a", linewidth=1.0)
-    inset.axvline(vdep, color="#c0392b", linestyle="--", linewidth=0.8)
+    inset.plot(voltage, [c * 1e12 for c in capacitance], color=inset_color, linewidth=1.05)
+    inset.axvline(vdep, color=marker_color, linestyle="--", linewidth=0.75)
     inset.set_xlabel("V")
     inset.set_ylabel("C (pF)")
     inset.tick_params(labelsize=7)
     inset.minorticks_on()
-
+    ax.tick_params(direction="in", top=True, right=True)
+    inset.tick_params(direction="in", top=True, right=True)
     finalize_axes(ax, inset)
     fig.tight_layout()
     save_figure(fig, OUT_BASE)

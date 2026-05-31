@@ -1,0 +1,28 @@
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{indentfirst}
+
+\captionsetup[figure]{labelformat=empty,font=small,skip=4pt}
+\floatplacement{figure}{H}
+\makeatletter
+\def\fps@figure{H}
+\makeatother
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.12em}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{4.2pt}
+\AtBeginEnvironment{longtable}{\footnotesize}
+\AtBeginEnvironment{table}{\footnotesize}
+\sloppy

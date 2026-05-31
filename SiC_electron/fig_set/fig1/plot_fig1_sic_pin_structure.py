@@ -12,6 +12,7 @@ from matplotlib.patches import Circle, FancyArrowPatch, Polygon
 
 OUTPUT_PNG = Path(__file__).resolve().parent / "fig1_sic_pin_structure.png"
 OUTPUT_SVG = Path(__file__).resolve().parent / "fig1_sic_pin_structure.svg"
+OUTPUT_PDF = Path(__file__).resolve().parent / "fig1_sic_pin_structure.pdf"
 
 TEXT = "#111827"
 DIMENSION = "#374151"
@@ -35,9 +36,13 @@ ELECTRON_TEXT = "white"
 plt.rcParams.update(
     {
         "font.family": "DejaVu Sans",
+        "font.sans-serif": ["Arial", "DejaVu Sans"],
         "font.size": 10,
         "figure.facecolor": "white",
         "axes.facecolor": "white",
+        "pdf.fonttype": 42,
+        "ps.fonttype": 42,
+        "svg.fonttype": "none",
     }
 )
 
@@ -68,6 +73,7 @@ def add_layer(
     label_color: str = TEXT,
     label_size: float = 10.0,
     label_weight: str = "bold",
+    draw_top: bool = False,
 ) -> None:
     front = [(x, y), (x + width, y), (x + width, y + height), (x, y + height)]
     right = [
@@ -76,15 +82,16 @@ def add_layer(
         (x + width + depth_x, y + height + depth_y),
         (x + width, y + height),
     ]
-    top = [
-        (x, y + height),
-        (x + width, y + height),
-        (x + width + depth_x, y + height + depth_y),
-        (x + depth_x, y + height + depth_y),
-    ]
     ax.add_patch(Polygon(right, closed=True, facecolor=shade(color, 0.86), edgecolor=edge, linewidth=0.9))
     ax.add_patch(Polygon(front, closed=True, facecolor=color, edgecolor=edge, linewidth=0.9))
-    ax.add_patch(Polygon(top, closed=True, facecolor=shade(color, 1.08), edgecolor=edge, linewidth=0.9))
+    if draw_top:
+        top = [
+            (x, y + height),
+            (x + width, y + height),
+            (x + width + depth_x, y + height + depth_y),
+            (x + depth_x, y + height + depth_y),
+        ]
+        ax.add_patch(Polygon(top, closed=True, facecolor=shade(color, 1.08), edgecolor=edge, linewidth=0.9))
 
     if label:
         ax.text(
@@ -100,11 +107,105 @@ def add_layer(
         )
 
 
+def add_front_layer(
+    ax: plt.Axes,
+    *,
+    x: float,
+    y: float,
+    width: float,
+    height: float,
+    color: str,
+    edge: str,
+    label: str | None = None,
+    label_color: str = TEXT,
+    label_size: float = 10.0,
+    label_weight: str = "bold",
+) -> None:
+    front = [(x, y), (x + width, y), (x + width, y + height), (x, y + height)]
+    ax.add_patch(Polygon(front, closed=True, facecolor=color, edgecolor=edge, linewidth=0.9))
+    if label:
+        ax.text(
+            x + width / 2.0,
+            y + height / 2.0,
+            label,
+            ha="center",
+            va="center",
+            color=label_color,
+            fontsize=label_size,
+            fontweight=label_weight,
+            linespacing=1.22,
+        )
+
+
+def add_right_band(
+    ax: plt.Axes,
+    *,
+    x: float,
+    y: float,
+    width: float,
+    height: float,
+    depth_x: float,
+    depth_y: float,
+    color: str,
+    edge: str,
+) -> None:
+    right = [
+        (x + width, y),
+        (x + width + depth_x, y + depth_y),
+        (x + width + depth_x, y + height + depth_y),
+        (x + width, y + height),
+    ]
+    ax.add_patch(Polygon(right, closed=True, facecolor=shade(color, 0.86), edgecolor=edge, linewidth=0.9))
+
+
+def add_top_face(
+    ax: plt.Axes,
+    *,
+    x: float,
+    y: float,
+    width: float,
+    height: float,
+    depth_x: float,
+    depth_y: float,
+    color: str,
+    edge: str,
+) -> None:
+    top = [
+        (x, y + height),
+        (x + width, y + height),
+        (x + width + depth_x, y + height + depth_y),
+        (x + depth_x, y + height + depth_y),
+    ]
+    ax.add_patch(Polygon(top, closed=True, facecolor=shade(color, 1.08), edgecolor=edge, linewidth=0.9))
+
+
+def add_clean_top_face(
+    ax: plt.Axes,
+    *,
+    x: float,
+    y: float,
+    width: float,
+    depth_x: float,
+    depth_y: float,
+    color: str,
+    edge: str,
+) -> None:
+    top = [
+        (x, y),
+        (x + width, y),
+        (x + width + depth_x, y + depth_y),
+        (x + depth_x, y + depth_y),
+    ]
+    ax.add_patch(Polygon(top, closed=True, facecolor=shade(color, 0.78), edgecolor="none", linewidth=0.0))
+    ax.plot([x + width, x + width + depth_x], [y, y + depth_y], color=edge, linewidth=1.05)
+    ax.plot([x + depth_x, x + width + depth_x], [y + depth_y, y + depth_y], color=edge, linewidth=1.05)
+
+
 def add_dimension(ax: plt.Axes, x: float, y0: float, y1: float, text: str) -> None:
     ax.plot([x, x], [y0, y1], color=DIMENSION, linewidth=1.25)
     ax.plot([x - 0.14, x + 0.14], [y0, y0], color=DIMENSION, linewidth=1.25)
     ax.plot([x - 0.14, x + 0.14], [y1, y1], color=DIMENSION, linewidth=1.25)
-    ax.text(x + 0.22, (y0 + y1) / 2.0, text, ha="left", va="center", fontsize=10.5, color=TEXT)
+    ax.text(x + 0.22, (y0 + y1) / 2.0, text, ha="left", va="center", fontsize=10.5, color=TEXT, fontweight="bold")
 
 
 def add_electron(ax: plt.Axes, x: float, y: float, radius: float = 0.23) -> None:
@@ -121,7 +222,6 @@ def main() -> int:
     dx = 1.15
     dy = 0.55
 
-    # Visual heights are not to scale; numeric thicknesses are carried by labels.
     h_bottom_metal = 0.16
     h_n = 0.42
     h_i = 4.35
@@ -129,61 +229,67 @@ def main() -> int:
     h_top_metal = 0.16
 
     z = y0
-    add_layer(ax, x=x0, y=z, width=width, height=h_bottom_metal, depth_x=dx, depth_y=dy, color=METAL, edge=METAL_EDGE)
-    z += h_bottom_metal
-    n_bottom = z
-    add_layer(
-        ax,
-        x=x0,
-        y=z,
-        width=width,
-        height=h_n,
-        depth_x=dx,
-        depth_y=dy,
-        color=N_COLOR,
-        edge=N_EDGE,
-        label="n+  0.5 μm",
-        label_color=N_TEXT,
-        label_size=9.6,
-    )
-    z += h_n
-    i_bottom = z
-    add_layer(
-        ax,
-        x=x0,
-        y=z,
-        width=width,
-        height=h_i,
-        depth_x=dx,
-        depth_y=dy,
-        color=I_COLOR,
-        edge=I_EDGE,
-        label="4H-SiC i-region\n120 μm\nN_D = 5.6e12 cm^-3",
-        label_color=I_TEXT,
-        label_size=11.4,
-    )
-    z += h_i
-    i_top = z
-    add_layer(
-        ax,
-        x=x0,
-        y=z,
-        width=width,
-        height=h_p,
-        depth_x=dx,
-        depth_y=dy,
-        color=P_COLOR,
-        edge=P_EDGE,
-        label="p+  0.2 μm",
-        label_color=P_TEXT,
-        label_size=10.0,
-    )
-    z += h_p
-    top_active = z
-    add_layer(ax, x=x0, y=z, width=width, height=h_top_metal, depth_x=dx, depth_y=dy, color=METAL, edge=METAL_EDGE)
-    top_total = z + h_top_metal
+    layers = [
+        (h_bottom_metal, METAL, METAL_EDGE, None, TEXT, 10.0),
+        (h_n, N_COLOR, N_EDGE, r"n+  0.5 $\boldsymbol{\mu}$m", N_TEXT, 9.6),
+        (
+            h_i,
+            I_COLOR,
+            I_EDGE,
+            r"4H-SiC i-region" "\n" r"120 $\boldsymbol{\mu}$m" "\n" r"$\mathbf{N}_{\mathbf{D}}$ = 5.6e12 cm$^{\mathbf{-3}}$",
+            I_TEXT,
+            11.4,
+        ),
+        (h_p, P_COLOR, P_EDGE, r"p+  0.2 $\boldsymbol{\mu}$m", P_TEXT, 10.0),
+        (h_top_metal, METAL, METAL_EDGE, None, TEXT, 10.0),
+    ]
 
-    # Incident electrons: three repeated vertical injection marks above the top electrode.
+    total_height = sum(item[0] for item in layers)
+    side_y = y0
+    for height, color, edge, _label, _label_color, _label_size in layers:
+        add_right_band(
+            ax,
+            x=x0,
+            y=side_y,
+            width=width,
+            height=height,
+            depth_x=dx,
+            depth_y=dy,
+            color=color,
+            edge=edge,
+        )
+        side_y += height
+
+    add_clean_top_face(
+        ax,
+        x=x0,
+        y=y0 + total_height,
+        width=width,
+        depth_x=dx,
+        depth_y=dy,
+        color=METAL,
+        edge=METAL_EDGE,
+    )
+
+    for height, color, edge, label, label_color, label_size in layers:
+        add_front_layer(
+            ax,
+            x=x0,
+            y=z,
+            width=width,
+            height=height,
+            color=color,
+            edge=edge,
+            label=label,
+            label_color=label_color,
+            label_size=label_size,
+        )
+        if label and label.startswith("4H-SiC"):
+            i_bottom = z
+            i_top = z + height
+        z += height
+    top_total = z
+
     electron_y = top_total + dy + 0.56
     target_y = top_total + dy + 0.03
     for frac in (0.28, 0.50, 0.72):
@@ -210,28 +316,47 @@ def main() -> int:
         )
         add_electron(ax, *electron_center)
 
-    # i-region thickness marker aligned to the right-side i-layer boundary.
-    add_dimension(ax, x0 + width + dx + 0.25, i_bottom + dy, i_top + dy, "i = 120 μm")
+    add_dimension(
+        ax,
+        x0 + width + dx + 0.25,
+        i_bottom + dy,
+        i_top + dy,
+        r"$\mathbf{i\ =\ 120\ }\boldsymbol{\mu}\mathbf{m}$",
+    )
 
     footprint_y = y0 - 0.20
     ax.plot([x0, x0 + width], [footprint_y, footprint_y], color=DIMENSION, linewidth=1.15)
     ax.plot([x0, x0], [footprint_y - 0.09, footprint_y + 0.09], color=DIMENSION, linewidth=1.15)
     ax.plot([x0 + width, x0 + width], [footprint_y - 0.09, footprint_y + 0.09], color=DIMENSION, linewidth=1.15)
-    ax.text(x0 + width / 2.0, footprint_y - 0.16, "240 μm × 240 μm", ha="center", va="top", fontsize=9.5, color=TEXT)
-
+    ax.text(
+        x0 + width / 2.0,
+        footprint_y - 0.16,
+        r"$\mathbf{240\ }\boldsymbol{\mu}\mathbf{m\ x\ 240\ }\boldsymbol{\mu}\mathbf{m}$",
+        ha="center",
+        va="top",
+        fontsize=9.5,
+        color=TEXT,
+        fontweight="bold",
+    )
 
     ax.set_xlim(0.0, 9.2)
     ax.set_ylim(-0.05, 7.55)
     ax.set_aspect("equal")
     ax.axis("off")
+    ax.set_frame_on(False)
+    ax.patch.set_visible(False)
+    for spine in ax.spines.values():
+        spine.set_visible(False)
 
     OUTPUT_PNG.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUTPUT_PNG, bbox_inches="tight", pad_inches=0.18)
-    fig.savefig(OUTPUT_SVG, bbox_inches="tight", pad_inches=0.18)
+    fig.savefig(OUTPUT_PNG, bbox_inches="tight", pad_inches=0.18, dpi=600, facecolor="white", edgecolor="none")
+    fig.savefig(OUTPUT_SVG, bbox_inches="tight", pad_inches=0.18, facecolor="white", edgecolor="none")
+    fig.savefig(OUTPUT_PDF, bbox_inches="tight", pad_inches=0.18, facecolor="white", edgecolor="none")
     plt.close(fig)
 
     print(f"Saved: {OUTPUT_PNG}")
     print(f"Saved: {OUTPUT_SVG}")
+    print(f"Saved: {OUTPUT_PDF}")
     return 0
 
 
