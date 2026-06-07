@@ -66,13 +66,7 @@ The Geant4 output $E_{\mathrm{dep}}$ is binned by depth and lateral position and
 
 ![Fig.3. Typical carrier-generation-rate distribution in TCAD (unit: $\mathrm{cm^{-3}\ s^{-1}}$). The generation rate has clear gradients in both lateral and depth directions, reflecting the nonuniform deposition of low-energy beta electrons in 4H-SiC.](../figures/fig3_tcad_generation_distribution.png){width=70%}
 
-To determine the additional error that may be introduced during the Geant4-to-TCAD conversion, this work compares the electron-hole-pair number obtained from the Geant4 deposited energy with the integral of the TCAD generation rate. The electron-hole-pair number calculated from the Geant4 deposited energy is
-
-$$
-N_{eh}^{\mathrm{Geant4}}=\frac{\langle E_{\mathrm{dep}}\rangle}{E_{eh}},
-$$
-
-and the mapped generation-rate integral is
+To determine the additional error that may be introduced during the Geant4-to-TCAD conversion, this work uses the same energy-to-charge normalization above to compare the electron-hole-pair number obtained from the Geant4 deposited energy with the integral of the TCAD generation rate. The mapped generation-rate integral is
 
 $$
 N_{eh}^{\mathrm{TCAD}}=\int G\,dV\,dt.

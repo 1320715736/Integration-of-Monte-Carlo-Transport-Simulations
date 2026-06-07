@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.5.6)  31 MAY 2026 21:50
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.5.6)  1 JUN 2026 00:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1439,9 +1439,9 @@ File: ../figures/fig4_c14_spectrum.png Graphic file (type bmp)
 <../figures/fig4_c14_spectrum.png>
 File: ../figures/fig5_dedx_profiles.png Graphic file (type bmp)
 <../figures/fig5_dedx_profiles.png>
- [5]
 File: ../figures/fig6_cv_1overc2_baseline.png Graphic file (type bmp)
 <../figures/fig6_cv_1overc2_baseline.png>
+ [5]
 File: ../figures/fig7_c14_cce_vs_thickness_by_Nt.png Graphic file (type bmp)
 <../figures/fig7_c14_cce_vs_thickness_by_Nt.png>
 File: ../figures/fig8_c14_cce_design_map.png Graphic file (type bmp)
@@ -1454,15 +1454,15 @@ File: ../figures/fig10_design_bias_matrix.png Graphic file (type bmp)
 <../figures/fig10_design_bias_matrix.png>
  [8]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/it' will be
-(Font)              scaled to size 9.0pt on input line 828.
+(Font)              scaled to size 9.0pt on input line 822.
 
-Underfull \hbox (badness 1789) in paragraph at lines 866--871
+Underfull \hbox (badness 1789) in paragraph at lines 860--865
 []\TU/TimesNewRoman(0)/m/n/9 [10] G. Bertuccio, S. Binetti, S. Caccia, R. Casir
 aghi, A. Castaldini, A. Cavallini, et al., “Silicon carbide for alpha,
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 985--988
+Underfull \hbox (badness 10000) in paragraph at lines 979--982
 []\TU/TimesNewRoman(0)/m/n/9 [34] National Institute of Standards and Technolog
 y, “ESTAR: Stopping-power and range tables for electrons.”
  []
